@@ -1,4 +1,4 @@
-# Fingraph-
+# FinGraph: Real-Time Fraud & AML Graph Stream Processing Engine
 FinGraph is an advanced FinTech and Anti-Money Laundering (AML) project designed to detect complex fraud and money-laundering networks in real time.
 
 ## Week 1: Ingestion & Graph Schema
@@ -348,4 +348,3 @@ OK
 - **Initial risk-score prototype**
 - **Latency benchmark**
 - **Week 2 test verification**
-

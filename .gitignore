@@ -1,3 +1,84 @@
-﻿Fingraph/.venv/
-Fingraph/**/__pycache__/
+# ==============================================================================
+# Git Ignore - FinGraph Real-Time AML & Stream Processing
+# ==============================================================================
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+*/.venv/
+**/.venv/
+**/.venv*
+
+# Python cache and bytecode
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
 *.pyc
+*.pyd
+*.pyo
+
+# Packaging & Distribution
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+*.egg
+
+# Environment variables & Sensitive Credentials (Zero-Leakage Policy)
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+*.pub
+id_rsa*
+*secrets*
+*credential*
+auth*.json
+serviceAccountKey*.json
+*token*
+
+# Database & Runtime volumes
+docker/data/
+neo4j/data/
+**/neo4j/data/
+**/data/
+**/transactions/
+**/neostore.*
+**/*.transaction.db.*
+*.pid
+*.pid.lock
+*.seed
+
+# Logs
+*.log
+logs/
+**/logs/
+
+# IDE, OS & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+desktop.ini
+*.lnk
+
+# Unintentional duplicates / Temporary artifacts
+Fingraph--main/
+*.tmp
+*.bak
+*.swp
+*.swo
+

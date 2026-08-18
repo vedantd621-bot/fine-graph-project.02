@@ -1,7 +1,32 @@
+# ==============================================================================
+# Git Ignore - Fingraph Module
+# ==============================================================================
+
+# Virtual Environments
+.venv/
+venv/
+env/
+**/__pycache__/
+*.py[cod]
+*.pyc
+
+# Sensitive data & Secrets
+.env*
+*.pem
+*.key
+*.token*
+*secret*
+*credential*
+
 # Neo4j database/runtime files
 docker/data/
 neo4j/data/
 **/neo4j/data/
+**/data/
 **/transactions/
 **/neostore.*
 **/*.transaction.db.*
+
+# Logs
+*.log
+logs/
