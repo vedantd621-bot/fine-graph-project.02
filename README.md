@@ -51,10 +51,10 @@ Week 1 focuses on generating realistic transaction data (including fraud syndica
    ```
 
 ### Validation
-- Open the Neo4j Browser at [http://localhost:7474](http://localhost:7474) (Credentials: `neo4j` / `password`).
+- Open the Neo4j Browser at []http://localhost:7474(http://localhost:7474) (Credentials: `neo4j` / `password`).
 - Run `MATCH (n) RETURN n LIMIT 200` to visualize the live, interconnected financial graph.
 
-# Week 2: Flink Stream Processing + Cypher
+  # Week 2: Flink Stream Processing + Cypher
 
 ## Week 2 Goal
 
@@ -434,3 +434,75 @@ OK
 - **Latency benchmark**
 - **Week 2 test verification**
 
+## Week 3: Graph Data Science & AML Investigation Dashboard
+
+Week 3 extends FinGraph with graph-based analytics and an interactive AML investigation dashboard while keeping the existing Week 1 and Week 2 logic unchanged.
+
+### GDS Analytics
+
+The Week 3 GDS module uses Neo4j Graph Data Science to analyze financial transaction networks.
+
+Existing graph model:
+
+(:Account)-[:SENDS]->(:Transaction)-[:TRANSFERRED_TO]->(:Account)
+
+The transaction-node structure is projected into a direct Account-to-Account graph for GDS analysis.
+
+### GDS Algorithms
+
+The following algorithms are implemented:
+
+- PageRank
+- Weakly Connected Components (WCC)
+- Louvain Community Detection
+
+The results are persisted on Account nodes:
+
+- `pagerank_score`
+- `wcc_component`
+- `louvain_community`
+
+Existing Week 2 properties are preserved:
+
+- `risk_score`
+- `risk_level`
+
+No new risk-scoring formula is introduced.
+
+### GDS Environment
+
+- Neo4j: `5.12.0`
+- Neo4j GDS: `2.6.9`
+- GDS graph: `finGraph_transfers`
+
+### Streamlit AML Investigation Dashboard
+
+Week 3 also includes a read-only Streamlit dashboard for investigating the financial network.
+
+Dashboard features include:
+
+- Account search and inspection
+- Week 2 risk score and risk level
+- GDS PageRank, WCC and Louvain results
+- Financial transaction network visualization
+- Risk-level filtering
+- Louvain community filtering
+- 1-hop and 2-hop network exploration
+- Transaction details
+- Suspicious transaction indicators
+- Community-level analysis
+
+The dashboard does not modify Neo4j data and does not implement account freeze actions.
+
+### Week 3 Files
+
+```text
+Fingraph/
+├── gds_analytics/
+│   ├── __init__.py
+│   ├── gds_runner.py
+│   └── test_gds_pipeline.py
+│
+└── dashboard/
+    ├── app.py
+    └── requirements.txt
